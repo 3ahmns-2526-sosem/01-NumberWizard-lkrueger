@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GuessBerechnen : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class GuessBerechnen : MonoBehaviour
     public int guess;
 
     [SerializeField] private TextMeshProUGUI guessText;
+
+    [SerializeField] private Button higherButton;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,5 +28,11 @@ public class GuessBerechnen : MonoBehaviour
     {
         guess = (min + max) / 2;
         guessText.text = guess.ToString();
+    }
+
+    public void HigherButtonPressed()
+    {
+        min = guess + 1;
+        CalculateNextGuess();
     }
 }
