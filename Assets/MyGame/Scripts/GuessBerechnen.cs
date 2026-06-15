@@ -14,16 +14,9 @@ public class GuessBerechnen : MonoBehaviour
     [SerializeField] private Button lowerButton;
     [SerializeField] private Button correctButton;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         CalculateNextGuess();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void CalculateNextGuess()
