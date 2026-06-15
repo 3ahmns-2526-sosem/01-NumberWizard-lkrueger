@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 public class GuessBerechnen : MonoBehaviour
 {
+    [SerializeField] private int startMin = 1;
+    [SerializeField] private int startMax = 100;
+
     public int min = 1;
     public int max = 100;
     public int guess;
@@ -48,5 +51,16 @@ public class GuessBerechnen : MonoBehaviour
         if (higherButton != null) higherButton.interactable = state;
         if (lowerButton != null) lowerButton.interactable = state;
         if (correctButton != null) correctButton.interactable = state;
+    }
+    private void ResetGame()
+    {
+        min = startMin;
+        max = startMax;
+        SetButtonsInteractable(true);
+        CalculateNextGuess();
+    }
+    public void OnRestartPressed()
+    {
+        ResetGame();
     }
 }
