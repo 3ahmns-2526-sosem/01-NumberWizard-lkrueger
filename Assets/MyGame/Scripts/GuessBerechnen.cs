@@ -11,6 +11,7 @@ public class GuessBerechnen : MonoBehaviour
     [SerializeField] private TextMeshProUGUI guessText;
 
     [SerializeField] private Button higherButton;
+    [SerializeField] private Button lowerButton;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -33,6 +34,11 @@ public class GuessBerechnen : MonoBehaviour
     public void HigherButtonPressed()
     {
         min = guess + 1;
+        CalculateNextGuess();
+    }
+    public void OnLowerPressed()
+    {
+        max = guess - 1;
         CalculateNextGuess();
     }
 }
