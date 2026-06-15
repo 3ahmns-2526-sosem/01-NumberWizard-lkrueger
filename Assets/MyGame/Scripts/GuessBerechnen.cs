@@ -12,6 +12,7 @@ public class GuessBerechnen : MonoBehaviour
 
     [SerializeField] private Button higherButton;
     [SerializeField] private Button lowerButton;
+    [SerializeField] private Button correctButton;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -40,5 +41,19 @@ public class GuessBerechnen : MonoBehaviour
     {
         max = guess - 1;
         CalculateNextGuess();
+    }
+    public void OnCorrectPressed()
+    {
+        if (guessText != null)
+        {
+            guessText.text = guess + "! I Guessed Correct!!!";
+        }
+        SetButtonsInteractable(false);
+    }
+    void SetButtonsInteractable(bool state)
+    {
+        if (higherButton != null) higherButton.interactable = state;
+        if (lowerButton != null) lowerButton.interactable = state;
+        if (correctButton != null) correctButton.interactable = state;
     }
 }
